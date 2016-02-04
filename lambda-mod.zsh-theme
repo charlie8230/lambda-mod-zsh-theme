@@ -38,9 +38,9 @@ ${LAMBDA}\
 
 # Format for git_prompt_info()
 ZSH_THEME_GIT_PROMPT_PREFIX="@%{$fg[blue]%} ⑂ "
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}>"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[red]%}*"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✔"
+ZSH_THEME_GIT_PROMPT_SUFFIX=""
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[red]%}✖︎"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✓"
 
 # Format for git_prompt_status()
 ZSH_THEME_GIT_PROMPT_ADDED="%{$fg_bold[green]%}+"
