@@ -29,17 +29,13 @@ function get_right_prompt() {
 time_enabled="%(?.%{$fg[green]%}.%{$fg[red]%})%*%{$reset_color%}"
 time_disabled="%{$fg[green]%}%*%{$reset_color%}"
 time=$time_enabled
-#$RPROMPT='${time}'
 
-# RPROMPT='[%*]'
 PROMPT='
 @${time} > %{$fg_no_bold[white]%}[%3~] $(get_right_prompt)
 ${LAMBDA}\
  $(check_git_prompt_info)\
 %{$reset_color%}'
 
-# RPROMPT='$(get_right_prompt)'
-# removed %{$fg_bold[$USERCOLOR]%}%n\
 # Format for git_prompt_info()
 ZSH_THEME_GIT_PROMPT_PREFIX="@%{$fg[blue]%} ⑂ "
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
