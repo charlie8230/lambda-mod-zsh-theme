@@ -9,12 +9,12 @@ if [[ "$USER" == "root" ]]; then USERCOLOR="red"; else USERCOLOR="yellow"; fi
 function check_git_prompt_info() {
     if git rev-parse --git-dir > /dev/null 2>&1; then
         if [[ -z $(git_prompt_info) ]]; then
-            echo "%{$fg[blue]%}detached-head%{$reset_color%}) $(git_prompt_status) %{$fg[yellow]%}→  "
+            echo "%{$fg[blue]%}detached-head%{$reset_color%}) $(git_prompt_status) %{$fg[yellow]%}⑉ "
         else
-            echo "$(git_prompt_info) $(git_prompt_status) %{$fg_bold[white]%}→  "
+            echo "$(git_prompt_info) $(git_prompt_status) %{$fg_bold[white]%}~ "
         fi
     else
-        echo "%{$fg_bold[white]%}→  "
+        echo "%{$fg_bold[white]%}"
     fi
 }
 
@@ -22,7 +22,7 @@ function get_right_prompt() {
     if git rev-parse --git-dir > /dev/null 2>&1; then
         echo -n "$(git_prompt_short_sha)%{$reset_color%}"
     else
-        echo -n "%{$reset_color%}"
+        echo -n "%{$reset_color%} "
     fi
 }
 # local time, color coded by last return code
@@ -30,8 +30,7 @@ time_enabled="%(?.%{$fg[green]%}.%{$fg[red]%})%*%{$reset_color%}"
 time_disabled="%{$fg[green]%}%*%{$reset_color%}"
 time=$time_enabled
 
-PROMPT='
-@${time} > %{$fg_no_bold[white]%}[%3~] $(get_right_prompt)
+PROMPT='@${time} > %{$fg_no_bold[white]%}[%3~] $(get_right_prompt)
 ${LAMBDA}\
  $(check_git_prompt_info)\
 %{$reset_color%}'
